@@ -23,7 +23,9 @@ const NavFavourites = () => {
     <FlatList
       data={data}
       keyExtractor={(item) => item.id}
-      ItemSeparatorComponent={() => <View style={tw`bg-gray-200 h-[0.08rem]`} />}
+      ItemSeparatorComponent={() => (
+        <View style={tw`bg-gray-100 h-[0.08rem]`} />
+      )}
       renderItem={({ item: { location, destination, icon } }) => (
         <TouchableOpacity style={tw`flex-row items-center p-5`}>
           <Icon

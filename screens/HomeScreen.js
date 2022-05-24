@@ -1,4 +1,4 @@
-import { Text, View, SafeAreaView, Image } from "react-native";
+import { StyleSheet, View, SafeAreaView, Image } from "react-native";
 import tw from "twrnc";
 import React from "react";
 import NavOptions from "../components/NavOptions";
@@ -20,39 +20,47 @@ const HomeScreen = () => {
           source={{ uri: "https://links.papareact.com/gzs" }}
         />
 
-      <GooglePlacesAutocomplete
-        styles={{
-          container: {
-            flex: 0,
-          },
-          textInput: {
-            fontSize: 18,
-          },
-        }}
-        returnKeyType={"search"}
-        onPress={(data, details = null) => {
-          dispatch(
-            setOrigin({
-              location: details.geometry.location,
-              description: data.description,
-            })
-          );
-          dispatch(setDestination(null));
-        }}
-        fetchDetails={true}
-        minLength={2}
-        enablePoweredByContainer={false}
-        query={{ key: GOOGLE_MAPS_APIKEY, language: "en" }}
-        nearbyPlacesAPI="GooglePlacesSearch"
-        debounce={400}
-        placeholder="Where From ?"
-      />
+        <GooglePlacesAutocomplete
+          styles={toInputBoxStyles}
+          returnKeyType={"search"}
+          onPress={(data, details = null) => {
+            dispatch(
+              setOrigin({
+                location: details.geometry.location,
+                description: data.description,
+              })
+            );
+            dispatch(setDestination(null));
+          }}
+          fetchDetails={true}
+          minLength={2}
+          enablePoweredByContainer={false}
+          query={{ key: GOOGLE_MAPS_APIKEY, language: "en" }}
+          nearbyPlacesAPI="GooglePlacesSearch"
+          debounce={400}
+          placeholder="Where from ?"
+        />
 
-      <NavOptions />
-      <NavFavourites/>
+        <NavOptions />
+        <NavFavourites />
       </View>
     </SafeAreaView>
   );
 };
 
 export default HomeScreen;
+
+const toInputBoxStyles = StyleSheet.create({
+  container: {
+    backgroundColor: "white",
+    flex: 0,
+  },
+  textInput: {
+    backgroundColor: "#f9fafb",
+    borderRadius: 1,
+    fontSize: 18,
+  },
+  textInputContainer: {
+    paddingBottom: 0,
+  },
+});
