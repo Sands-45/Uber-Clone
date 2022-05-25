@@ -15,7 +15,7 @@ Please make sure billing is enabled
 - Distance Matrix API
 - Directions API
 
-##Gallery
+## Gallery
 
 ![IMG_20220525_203710](https://user-images.githubusercontent.com/82897602/170359756-a934e939-4306-4ea3-92ad-f4bd81d0f44e.jpg)
 ![IMG_20220525_203727](https://user-images.githubusercontent.com/82897602/170359772-e7862796-247f-4715-8bc8-e91c570d49cd.jpg)
